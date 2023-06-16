@@ -1,16 +1,21 @@
 #include <stdio.h>
-#include <string.h>
 /**
  * main - if and else
  * Return: returns 0 (Success)
 */
 int main(void)
 {
-char Al[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-int n = strlen(Al);
-for (int i = 0; i < n; i++)
+int i = 97;
+int j = 65;
+while (i <= 122)
 {
-putchar(Al[i]);
+putchar(i);
+i++;
+}
+while (j < 90)
+{
+putchar(j);
+j++;
 }
 putchar('\n');
 return (0);

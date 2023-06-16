@@ -6,9 +6,10 @@
 int main(void)
 {
 int i;
-for (int i = 0; i <= 9; i++)
+while (i < 10)
 {
 printf("%d", i);
+i++;
 }
 printf("\n");
 return (0);

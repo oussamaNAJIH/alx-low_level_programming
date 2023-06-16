@@ -1,20 +1,17 @@
 #include <stdio.h>
 /**
- * main - if and else
- * Return: returns 0 (Success)
-*/
+ * main - Displays the alphabet without q and e.
+ * Return: return 0 (Success)
+ */
 int main(void)
 {
-int i = 97;
-while (i <= 122)
+for (int i = 97; i <= 122; i++)
 {
-if (i == 101 || i == 113)
+if (i != 101 && i != 113)
 {
-i++;
-continue;
-}
 putchar(i);
-i++;
+}
 }
 putchar('\n');
 return (0);
+}

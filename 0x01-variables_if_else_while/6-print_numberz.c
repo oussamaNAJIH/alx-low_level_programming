@@ -6,9 +6,9 @@
 int main(void)
 {
 int i;
-for (int i = 48; i <= 57; i++)
+for (int i = 0; i < 10; i++)
 {
-putchar(i);
+putchar((i % 10) + '0');
 }
 putchar('\n');
 return (0);

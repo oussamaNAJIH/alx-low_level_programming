@@ -15,6 +15,7 @@ if (m < 10)
 _putchar(m + '0');
 _putchar(44);
 _putchar(' ');
+_putchar(' ');
 }
 else
 {

@@ -5,23 +5,24 @@
  */
 int main(void)
 {
-long long number = 612852475143;
-long long largestFactor = -1;
+long number = 612852475143;
+long largest = -1;
+int i;
 while (number % 2 == 0)
 {
-largestFactor = 2;
+largest = 2;
 number = number / 2;
 }
-for (long long i = 3; i * i <= number; i += 2)
+for (i = 3; i * i <= number; i += 2)
 {
 while (number % i == 0)
 {
-largestFactor = i;
+largest = i;
 number = number / i;
 }
 }
 if (number > 2)
-largestFactor = number;
-printf("%lld\n", largestFactor);
+largest = number;
+printf("%ld\n", largest);
 return (0);
 }

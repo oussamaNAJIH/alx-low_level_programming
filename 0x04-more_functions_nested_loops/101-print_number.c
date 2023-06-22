@@ -6,7 +6,7 @@
  */
 void print_number(int n)
 {
-int np;
+unsigned int np;
 if (n < 0)
 {
 np = -n;
@@ -18,7 +18,7 @@ np = n;
 }
 if ((np / 10) != 0)
 {
-print_number(np / 10);
+print_number((np / 10));
 }
 _putchar((np % 10) + '0');
 }

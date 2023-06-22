@@ -10,8 +10,8 @@ for (i = 48; i <= 57; i++)
 {
 if (i != 50 && i != 52)
 {
-putchar(i);
+_putchar(i);
 }
 }
-putchar('\n');
+_putchar('\n');
 }

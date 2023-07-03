@@ -17,5 +17,6 @@ return (s + i);
 }
 i++;
 }
-return (0);
+s = NULL;
+return (s);
 }

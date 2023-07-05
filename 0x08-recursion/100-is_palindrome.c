@@ -45,7 +45,7 @@ return (leng);
  */
 int help_int_is_palindrome(char *s, int n, int leng)
 {
-if (n > (leng / 2))
+if (n >= leng)
 {
 return (1);
 }

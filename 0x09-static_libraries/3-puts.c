@@ -2,15 +2,15 @@
 
 /**
  * _puts - prints a string, followed by a new line
- * @str: string print
+ * @s: string print
  */
 
-void _puts(char *str)
+void _puts(char *s)
 {
 int i = 0;
-while (str[i] != '\0')
+while (s[i] != '\0')
 {
-_putchar(str[i]);
+_putchar(s[i]);
 i++;
 }
 _putchar('\n');

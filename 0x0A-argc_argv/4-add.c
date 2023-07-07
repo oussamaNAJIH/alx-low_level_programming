@@ -67,6 +67,7 @@ if (converted == 0 && *argv[i] != '0')
 {
 printf("Error\n");
 return (1);
+break;
 }
 sum += converted;
 }

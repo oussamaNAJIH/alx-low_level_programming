@@ -54,12 +54,7 @@ return (number);
 int main(int argc, char *argv[])
 {
 int i, sum = 0;
-if (argc <= 2)
-{
-printf("%d\n", 0);
-}
-else
-{
+
 for (i = 1; i < argc; i++)
 {
 int converted = _atoi(argv[i]);
@@ -72,6 +67,5 @@ break;
 sum += converted;
 }
 printf("%d\n", sum);
-}
 return (0);
 }

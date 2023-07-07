@@ -4,14 +4,11 @@
  * _puts - prints a string, followed by a new line
  * @s: string print
  */
-
 void _puts(char *s)
 {
-int i = 0;
-while (s[i] != '\0')
+while (*s != '\0')
 {
-_putchar(s[i]);
-i++;
+_putchar(*s++);
 }
 _putchar('\n');
 }

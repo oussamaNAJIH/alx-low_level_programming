@@ -1,71 +1,55 @@
 #include <stdio.h>
-#include "main.h"
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+/**
+* checking_num - check - string there are digit
+* @str: array str
+*
+* Return: return 0 (Success)
+*/
+int checking_num(char *str)
+{
+unsigned int count = 0;
+while (count < strlen(str))
+{
+if (!isdigit(str[count]))
+{
+return (0);
+}
+count++;
+}
+return (1);
+}
+
 
 /**
- * _atoi - converts a string to an integer.
- * @s: string to be converted
- * Return: converted integer
- */
-int _atoi(char *s)
+* main - adds positive numbers
+* @argc: number of command line arguments
+* @argv: array of command line arguments
+* Return: return 0 (Success)
+*/
+int main(int argc, char *argv[])
 {
-int index, negative, number, prev_index;
-
-index = 0;
-negative = 0;
-number = 0;
-prev_index = 0;
-
-while (*(s + index) != '\0')
+int count;
+int converted;
+int sum = 0;
+count = 1;
+while (count < argc)
 {
-if (*(s + index) == '-' && prev_index == 0)
+if (checking_num(argv[count]))
 {
-negative++;
-}
-if (*(s + index) >= 48 && *(s + index) <= 57)
-{
-if (negative % 2 == 0)
-{
-number = number * 10 + (*(s + index) -48);
+converted = atoi(argv[count]);
+sum += converted;
 }
 else
 {
-number = number * 10 - (*(s + index) -48);
-}
-prev_index = index;
-}
-if (prev_index != 0 && prev_index != index)
-{
-break;
-}
-index++;
-}
-
-return (number);
-}
-
-
-/**
- * main - adds positive numbers
- * @argc: number of command line arguments
- * @argv: array of command line arguments
- * Return: returns 0 (Success)
- */
-
-int main(int argc, char *argv[])
-{
-int i, sum = 0;
-
-for (i = 1; i < argc; i++)
-{
-int converted = _atoi(argv[i]);
-if (converted == 0 && *argv[i] != '0')
-{
 printf("Error\n");
 return (1);
-break;
 }
-sum += converted;
+count++;
 }
 printf("%d\n", sum);
 return (0);
 }
+

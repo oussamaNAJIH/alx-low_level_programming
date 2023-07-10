@@ -25,7 +25,7 @@ if (size == 0)
 p = (char *)malloc(1);
 return (p);
 }
-p = (char *)malloc(size);
+p = (char *)malloc(size + 1);
 if (p == NULL)
 {
 return (NULL);
@@ -34,6 +34,7 @@ for (i = 0; i < size; i++)
 {
 p[i] = str[i];
 }
+p[sie] = '\0';
 return (p);
 free(p);
 }

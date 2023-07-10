@@ -16,7 +16,7 @@ while (str[size] != '\0')
 {
 size++;
 }
-if (str == "NULL")
+if (str == NULL)
 {
 return (NULL);
 }

@@ -34,7 +34,7 @@ for (i = 0; i < size; i++)
 {
 p[i] = str[i];
 }
-p[sie] = '\0';
+p[size] = '\0';
 return (p);
 free(p);
 }

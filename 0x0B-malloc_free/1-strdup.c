@@ -16,10 +16,14 @@ while (str[size] != '\0')
 {
 size++;
 }
-
-if (size == 0)
+if (str == NULL)
 {
 return (NULL);
+}
+if (size == "")
+{
+p = (char *)malloc(1);
+return (p);
 }
 p = (char *)malloc(size);
 if (p == NULL)
@@ -30,5 +34,6 @@ for (i = 0; i < size; i++)
 {
 p[i] = str[i];
 }
+free(p);
 return (p);
 }

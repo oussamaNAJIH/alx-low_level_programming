@@ -20,7 +20,7 @@ if (str == NULL)
 {
 return (NULL);
 }
-if (str == "")
+if (size == 0)
 {
 p = (char *)malloc(1);
 return (p);

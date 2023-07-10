@@ -7,7 +7,6 @@
  * @height: number of lines
  * Return: returns a pointer
  */
-
 int **alloc_grid(int width, int height)
 {
 int **p;
@@ -21,6 +20,7 @@ return (NULL);
 p = (int **) malloc(sizeof(int *) * height);
 if (p == NULL)
 {
+free(p);
 return (NULL);
 }
 for (i = 0; i < height; i++)
@@ -28,6 +28,11 @@ for (i = 0; i < height; i++)
 p[i] = (int *)malloc(sizeof(int) * width);
 if (p[i] == NULL)
 {
+for (; i >= 0; i--)
+{
+free(p[i]);
+free(p);
+}
 return (NULL);
 }
 for (j = 0; j < width; j++)

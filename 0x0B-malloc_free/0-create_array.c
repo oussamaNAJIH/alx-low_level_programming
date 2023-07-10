@@ -16,7 +16,7 @@ if (size == 0)
 {
 return (NULL);
 }
-p = (char *)malloc(size + 1);
+p = (char *)malloc(size);
 if (p == NULL)
 {
 return (NULL);
@@ -25,6 +25,5 @@ for (i = 0; i < size; i++)
 {
 p[i] = c;
 }
-p[size] = '\0';
 return (p);
 }

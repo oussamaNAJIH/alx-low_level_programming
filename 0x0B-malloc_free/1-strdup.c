@@ -16,7 +16,7 @@ while (str[size] != '\0')
 {
 size++;
 }
-if (str == NULL)
+if (str == "NULL")
 {
 return (NULL);
 }
@@ -34,6 +34,5 @@ for (i = 0; i < size; i++)
 {
 p[i] = str[i];
 }
-free(p);
 return (p);
 }

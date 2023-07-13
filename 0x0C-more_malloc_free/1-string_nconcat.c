@@ -20,14 +20,6 @@ while (s2 != NULL && s2[size2] != '\0')
 {
 size2++;
 }
-if (s1 == NULL)
-{
-size1 = 0;
-}
-if (s2 == NULL)
-{
-size2 = 0;
-}
 if (n >= size2)
 {
 p = (char *)malloc(size1 + size2 + 1);

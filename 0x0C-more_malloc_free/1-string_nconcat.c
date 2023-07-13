@@ -20,12 +20,27 @@ while (s2 != NULL && s2[size2] != '\0')
 {
 size2++;
 }
-if (n < size2)
-p = malloc(sizeof(char) * (size1 + n + 1));
+if (s1 == NULL)
+{
+size1 = 0;
+}
+if (s2 == NULL)
+{
+size2 = 0;
+}
+if (n >= size2)
+{
+p = (char *)malloc(size1 + size2 + 1);
+}
 else
-p = malloc(sizeof(char) * (size1 + size2 + 1));
+{
+size2 = n;
+p = (char *)malloc(size1 + n + 1);
+}
 if (p == NULL)
+{
 return (NULL);
+}
 for (i = 0; i < size1; i++)
 {
 p[i] = s1[i];

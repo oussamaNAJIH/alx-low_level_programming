@@ -34,6 +34,10 @@ if (str == NULL)
 {
 return (NULL);
 }
+if (tmp == NULL)
+{
+return (NULL);
+}
 tmp->str = strdup(str);
 tmp->next = NULL;
 tmp->len = lenght;

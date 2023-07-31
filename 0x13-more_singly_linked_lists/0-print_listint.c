@@ -10,20 +10,11 @@
 size_t print_listint(const listint_t *h)
 {
 int count = 0;
-const listint_t *tmp;
-tmp = h;
-if (tmp == NULL)
+while (h != NULL)
 {
-return (0);
-}
-else
-{
-while (tmp != NULL)
-{
-printf("%d\n", tmp->n);
+printf("%d\n", h->n);
 count++;
-tmp = tmp->next;
+h = h->next;
 }
 return (count);
-}
 }

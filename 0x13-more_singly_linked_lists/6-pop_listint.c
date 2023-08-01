@@ -20,4 +20,5 @@ tmp = *head;
 *head = tmp->next;
 i = (*head)->n;
 free(tmp);
+return (i);
 }

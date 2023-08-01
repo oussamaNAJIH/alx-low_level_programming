@@ -18,7 +18,7 @@ return (0);
 }
 tmp = *head;
 *head = tmp->next;
-i = (*head)->n;
+i = tmp->n;
 free(tmp);
 return (i);
 }

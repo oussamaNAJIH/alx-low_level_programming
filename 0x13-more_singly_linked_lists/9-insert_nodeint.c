@@ -21,6 +21,7 @@ if (new_node == NULL)
 return (NULL);
 }
 new_node->n = n;
+new_node->next = NULL;
 if (*head == NULL || idx == 0)
 {
 new_node->next = *head;

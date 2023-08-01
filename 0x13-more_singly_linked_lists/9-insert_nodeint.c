@@ -16,16 +16,17 @@ unsigned int i;
 listint_t *tmp = *head;
 listint_t *new_node = (listint_t *)malloc(sizeof(listint_t));
 new_node->next = NULL;
-if (new_node == NULL)
+if (new_node == NULL || head == NULL)
 {
 return (NULL);
 }
 new_node->n = n;
 new_node->next = NULL;
-if (*head == NULL || idx == 0)
+if (idx == 0)
 {
 new_node->next = *head;
 *head = new_node;
+return (new_node);
 }
 else
 {
@@ -40,6 +41,7 @@ return (NULL);
 }
 new_node->next = tmp->next;
 tmp->next = new_node;
-}
 return (new_node);
+}
+return (NULL);
 }

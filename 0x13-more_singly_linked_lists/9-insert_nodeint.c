@@ -34,11 +34,6 @@ for (i = 0; i < idx - 1 && tmp != NULL; i++)
 {
 tmp = tmp->next;
 }
-if (tmp == NULL)
-{
-free(new_node);
-return (NULL);
-}
 new_node->next = tmp->next;
 tmp->next = new_node;
 return (new_node);

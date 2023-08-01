@@ -3,7 +3,7 @@
 
 
 /**
- * sum_listint - calculates the sum of all the data (n) of a listint_t linked list
+ * sum_listint - calculates the sum of all the data linked list
  * @head: pointer to the head of the list
  * Return: returns the sum of all the data (n) of a listint_t linked list
  */

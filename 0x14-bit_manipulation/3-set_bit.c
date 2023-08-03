@@ -14,7 +14,7 @@ if (index > 63)
 {
 return (-1);
 }
-m= 1UL << index;
+m = 1UL << index;
 *n |= m;
 return (1);
 }

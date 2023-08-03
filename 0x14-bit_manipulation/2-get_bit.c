@@ -15,5 +15,5 @@ if (index > 63)
 return (-1);
 }
 result = (n >> index) & 1;
-retrun (result);
+return (result);
 }

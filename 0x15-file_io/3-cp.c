@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 /**
- * _exit_message - exit the program with an error message
+ * exit_message - exit the program with an error message
  * @code: exit code
  * @message: exit message to print
  * Return: returns code

@@ -1,22 +1,23 @@
 #include "main.h"
-#include <stdlib.h>
+
 /**
- * ssize_t read_textfile - reads a text file and prints it to the POSIX standard output
- * @filename: the file's name to be readen
+ * read_textfile - reads a text file and prints it to the POSIX standard output
+ * @filename: the file's name to be read
  * @letters: the number of letters it should read and print
  * Return: returns the actual number of letters it could read and print
  */
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-size_t fd, bytes_read, bytes_written;
+int fd;
+ssize_t bytes_read, bytes_written;
 char *buffer;
 if (filename == NULL)
 {
 return (0);
 }
 fd = open(filename, O_RDONLY);
-if (fd < 0)
+if (fd == -1)
 {
 return (0);
 }
@@ -26,6 +27,7 @@ if (buffer == NULL)
 close(fd);
 return (0);
 }
+
 bytes_read = read(fd, buffer, letters);
 if (bytes_read < 0)
 {
@@ -41,6 +43,6 @@ close(fd);
 return (0);
 }
 free(buffer);
-close (fd);
+close(fd);
 return (bytes_written);
 }

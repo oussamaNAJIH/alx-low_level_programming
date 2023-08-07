@@ -7,9 +7,8 @@ char *allocate_buff(char *file);
 void c_file(int fd);
 
 /**
- * create_buffer - create a buffer 
+ * allocate_buff - create a buffer
  * @file: The name of the file buffer is storing chars for.
- *
  * Return: A pointer to the newly-allocated buffer.
  */
 char *allocate_buff(char *file)
@@ -24,8 +23,8 @@ return (buffer);
 }
 
 /**
- * c_file - Closes file descriptors.
- * @fd: The file descriptor to be closed.
+ * c_file - Closes file
+ * @fd: The file descriptor
  */
 void c_file(int fd)
 {
@@ -37,9 +36,9 @@ exit(100);
 }
 
 /**
- * main - Copies the contents of a file to another file.
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
+ * main - checks the function
+ * @argc: The number of arguments
+ * @argv: list of arguments
  * Return: 0 on success.
  */
 int main(int argc, char *argv[])
@@ -67,7 +66,6 @@ free(buffer);
 c_file(fd_from);
 exit(99);
 }
-    
 while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 {
 bytes_written = write(fd_to, buffer, bytes_read);
@@ -91,7 +89,7 @@ exit(98);
 }
 
 free(buffer);
-c_file(fd_from);
-c_file(fd_to);
+close(fd_from);
+close(fd_to);
 return (0);
 }

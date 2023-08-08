@@ -1,39 +1,25 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+
 #define BUFFER_SIZE 1024
 
-char *allocate_buff(char *file);
-void c_file(int fd);
 
 /**
- * allocate_buff - create a buffer
- * @file: The name of the file buffer is storing chars for.
+ * exit_with_error - exite with error
+ * @message: message to dispaly
+ * @file: file's name
+ * @code: code
  * Return: A pointer to the newly-allocated buffer.
  */
-char *allocate_buff(char *file)
+void exit_with_error(const char *message, const char *file, int code)
 {
-char *buffer = malloc(sizeof(char) * BUFFER_SIZE);
-if (buffer == NULL)
-{
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
-exit(99);
-}
-return (buffer);
+dprintf(STDERR_FILENO, message, file);
+dprintf(STDERR_FILENO, "\n");
+exit(code);
 }
 
-/**
- * c_file - Closes file
- * @fd: The file descriptor
- */
-void c_file(int fd)
-{
-if (close(fd) == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-exit(100);
-}
-}
 
 /**
  * main - checks the function
@@ -43,53 +29,47 @@ exit(100);
  */
 int main(int argc, char *argv[])
 {
-int fd_from, fd_to, bytes_read, bytes_written;
-char *buffer;
+int fd_from, fd_to;
+ssize_t bytes_read, bytes_written;
+char buffer[BUFFER_SIZE];
 if (argc != 3)
 {
-dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-exit(97);
+exit_with_error("Usage: cp file_from file_to", "", 97);
 }
-buffer = allocate_buff(argv[2]);
+
 fd_from = open(argv[1], O_RDONLY);
-if (fd_from == -1)
-{
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-free(buffer);
-exit(98);
+if (fd_from == -1) {
+exit_with_error("Error: Can't read from file %s", argv[1], 98);
 }
+
 fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 if (fd_to == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-free(buffer);
-c_file(fd_from);
-exit(99);
+exit_with_error("Error: Can't write to file %s", argv[2], 99);
 }
+
 while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 {
 bytes_written = write(fd_to, buffer, bytes_read);
-if (bytes_written != bytes_read)
+if (bytes_written == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-free(buffer);
-c_file(fd_from);
-c_file(fd_to);
-exit(99);
+exit_with_error("Error: Can't write to file %s", argv[2], 99);
 }
 }
 
 if (bytes_read == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-free(buffer);
-c_file(fd_from);
-c_file(fd_to);
-exit(98);
+exit_with_error("Error: Can't read from file %s", argv[1], 98);
 }
 
-free(buffer);
-close(fd_from);
-close(fd_to);
+if (close(fd_from) == -1)
+{
+exit_with_error("Error: Can't close fd %d", "", 100);
+}
+
+if (close(fd_to) == -1) {
+exit_with_error("Error: Can't close fd %d", "", 100);
+}
+
 return (0);
 }

@@ -24,12 +24,11 @@ if (*head == NULL)
 return (new_node);
 }
 tmp =  *head;
-while (tmp != NULL)
+while (tmp->next != NULL)
 {
 tmp = tmp->next;
 }
 new_node->prev = tmp;
 tmp->next = new_node;
-free(tmp);
 return (*head);
 }

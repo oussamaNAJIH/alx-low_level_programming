@@ -9,7 +9,7 @@
 size_t print_dlistint(const dlistint_t *h)
 {
 int num = 0;
-const dlistint_t* tmp;
+const dlistint_t *tmp;
 if (h == NULL)
 {
 return (0);

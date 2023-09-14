@@ -35,7 +35,7 @@ dlistint_t *new_node;
 dlistint_t *tmp = get_dnodeint_at_index(*h, idx - 1);
 if (idx == 0)
 {
-add_dnodeint(h, n);
+return (add_dnodeint(h, n));
 }
 new_node = (dlistint_t *)malloc(sizeof(dlistint_t));
 if (new_node == NULL)

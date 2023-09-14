@@ -30,5 +30,6 @@ tmp = tmp->next;
 }
 new_node->prev = tmp;
 tmp->next = new_node;
+free(tmp);
 return (*head);
 }

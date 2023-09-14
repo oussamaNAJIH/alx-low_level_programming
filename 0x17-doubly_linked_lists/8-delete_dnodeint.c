@@ -40,12 +40,21 @@ return (-1);
 }
 if (index == 0)
 {
-*head = tmp->next;
-free(tmp);
-return (1);
+if (*head == NULL)
+{
+return (-1);
 }
+*head = tmp->next;
+}
+else
+{
 tmp->prev->next = tmp->next;
+}
+
+if (tmp->next != NULL)
+{
 tmp->next->prev = tmp->prev;
+}
 free(tmp);
 return (1);
 }

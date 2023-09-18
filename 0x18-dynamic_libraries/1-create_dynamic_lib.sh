@@ -1,5 +1,5 @@
 #!/bin/bash
 gcc -c *.c -fpic
 gcc *.o -shared -o liball.so
-sudo cp liball.so /usr/lib
+export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
 

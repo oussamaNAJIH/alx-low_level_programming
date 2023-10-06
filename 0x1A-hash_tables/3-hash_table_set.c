@@ -9,7 +9,7 @@
  * @value: the value associated with the key (can be an empty string)
  * Return: 1 if it succeeded, 0 otherwise
  */
-hash_node_t * create_node(const char *key, const char *value)
+hash_node_t *create_node(const char *key, const char *value)
 {
 hash_node_t *new_node;
 new_node = malloc(sizeof(hash_node_t));

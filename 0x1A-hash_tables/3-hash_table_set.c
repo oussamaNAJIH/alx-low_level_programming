@@ -1,6 +1,4 @@
 #include "hash_tables.h"
-#include <stdlib.h>
-#include <string.h>
 
 
 /**
@@ -30,6 +28,7 @@ free(new_node->key);
 free(new_node);
 return (NULL);
 }
+return (new_node);
 }
 
 /**

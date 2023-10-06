@@ -27,7 +27,7 @@ return (NULL);
 }
 for (i = 0; i < size; i++)
 {
-new_table->array[i] = NULL;    
+new_table->array[i] = NULL;
 }
 return (new_table);
 }

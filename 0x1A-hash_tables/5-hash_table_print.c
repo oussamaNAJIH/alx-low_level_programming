@@ -22,9 +22,9 @@ while (current_node)
 if (!first)
 {
 printf(", ");
-}  
+}
 printf("'%s': '%s'", current_node->key, current_node->value);
-first = 0;            
+first = 0;
 current_node = current_node->next;
 }
 }
